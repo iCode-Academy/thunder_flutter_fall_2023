@@ -35,6 +35,6 @@ void main(){
 
   bool unenHudal = true;
   // String interpolation
-  print('$c');
+  print(c);
   print('Mongolian Government is good: $unenHudal');
 }
