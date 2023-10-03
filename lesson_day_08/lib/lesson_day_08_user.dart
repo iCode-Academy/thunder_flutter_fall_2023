@@ -11,6 +11,7 @@ class User {
 }
 
 void main() {
+  print('Simple User Class with Default Constructor');
   final User user = User('John', 30);
   print(user.name);
   print(user.age);
