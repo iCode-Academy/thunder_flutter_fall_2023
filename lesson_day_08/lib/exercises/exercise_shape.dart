@@ -17,7 +17,9 @@ void main(){
   print('Exercise Shape Class');
   final Shape shape = Shape('Square');
   shape.describe();
+  print('is type of Square');
   print(shape.isTypeOf('Square'));
+  print('is type of circle');
   print(shape.isTypeOf('Circle'));
 
   // another example

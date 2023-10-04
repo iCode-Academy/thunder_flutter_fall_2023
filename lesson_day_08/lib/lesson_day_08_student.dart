@@ -27,7 +27,7 @@ void main() {
   print(student2.name);
   print(student2.grade);
   print(student2);
-  print(student2.printStudentProfile());
+  student2.printStudentProfile();
   final Student student3 = Student.freshman('Khangai');
   print(student3.name);
   print(student3.grade);
