@@ -20,11 +20,8 @@ class Building {
 
 
 class Vehicle {
-  String? type;
-  int? wheels;
+  String type;
+  int wheels;
 
-  Vehicle(String type, int wheels){
-    this.type = type;
-    this.wheels = wheels;
-  }
+  Vehicle(this.type,this.wheels);
 }
