@@ -1,6 +1,8 @@
 void main() {
   print('Dart lass accessors');
   final Animal horse = Animal('Horse', 4, 'Mammal');
+  print(horse.getName);
+  print(horse.getAge);
 
 }
 
