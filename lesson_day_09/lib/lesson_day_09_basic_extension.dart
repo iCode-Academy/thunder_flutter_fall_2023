@@ -12,9 +12,11 @@ class Child extends Parent {
 
 void main() {
   final Parent parent = Parent();
-  parent.show();
+  parent.show(); // Only from Parent
 
   final Child child = Child();
   child.show();     // From Parent
   child.display();  // From Child
+
+  // parent.display() // It is not possible
 }
