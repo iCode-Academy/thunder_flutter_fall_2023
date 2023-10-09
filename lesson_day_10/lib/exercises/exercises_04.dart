@@ -73,17 +73,29 @@ class Bus extends Vehicle {
 
 void main(){
   final Car car = Car(100, 100);
+  print('Car is accelerating.');
   car.accelerate();
+  print('Car is speed: ${car.speed}');
+  print('Car is braking');
   car.brake();
+  print('Car is speed: ${car.speed}');
   car.fuelEfficiency();
 
   final Bike bike = Bike(50, 50);
+  print('Bike is accelerating');
   bike.accelerate();
+  print('Bike is speed: ${bike.speed}');
+  print('Bike is braking');
   bike.brake();
+  print('Bike is speed: ${bike.speed}');
   bike.fuelEfficiency();
 
   final Bus bus = Bus(20, 20);
+  print('Bus is accelerating');
+  print('Bus is speed: ${bus.speed}');
   bus.accelerate();
+  print('Bus is braking');
+  print('Bus is speed: ${bus.speed}');
   bus.brake();
   bus.fuelEfficiency();
 }
