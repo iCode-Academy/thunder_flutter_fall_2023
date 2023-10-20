@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lesson_day_15_flutter/immutable_widget.dart';
+
 
 class BasicScreen extends StatelessWidget {
   const BasicScreen({super.key});
@@ -8,21 +8,33 @@ class BasicScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.indigo,
+        // leading: Icon(Icons.dashboard),
         title: Text('Welcome to Flutter'),
+        // elevation: 0,
+        backgroundColor: Colors.transparent,
+        centerTitle: true,
         actions: [
-          Padding(padding: EdgeInsets.all(10.0), child: Icon(Icons.edit),)
+          Icon(Icons.add),
+          Icon(Icons.edit),
+          Icon(Icons.abc)
         ],
       ),
-      body: Center(
-        child: AspectRatio(
-          aspectRatio: 1.0,
-            child: ImmutableWidget(),
+      body: Container(
+        color: Colors.teal,
+        child: Padding(
+          padding: const EdgeInsets.all(30.0),
+          child: Container(
+            padding: EdgeInsets.all(20.0),
+            color: Colors.red,
+            child: Container(
+              color: Colors.blueAccent
+            ),
+          ),
         ),
       ),
       drawer: Drawer(
         child: Container(
-          color: Colors.lightBlue,
+          color: Colors.indigo,
           child: Text("I'm a drawer"),
         ),
       ),
