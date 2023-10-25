@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-
 class TextFieldWidgetOne extends StatefulWidget {
   @override
   _TextFieldWidgetOneState createState() => _TextFieldWidgetOneState();
 }
-
 class _TextFieldWidgetOneState extends State<TextFieldWidgetOne> {
   String _inputValue = "";
 

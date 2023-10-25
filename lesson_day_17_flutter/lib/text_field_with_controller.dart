@@ -12,8 +12,7 @@ class _TextFieldTwoState extends State<TextFieldTwo> {
 
   @override
   void dispose() {
-    _controller
-        .dispose(); // Clean up the controller when the widget is removed from the widget tree.
+    _controller.dispose();
     super.dispose();
   }
 
