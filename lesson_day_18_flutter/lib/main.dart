@@ -6,6 +6,6 @@ import 'package:lesson_day_18_flutter/opacity_widget.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: OpacityWidget(),
+    home: GridViewWidget(),
   ));
 }

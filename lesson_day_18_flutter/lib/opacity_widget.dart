@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-
-
 class OpacityWidget extends StatefulWidget {
   const OpacityWidget({super.key});
 
@@ -54,4 +52,3 @@ class _OpacityWidgetState extends State<OpacityWidget> {
     );
   }
 }
-

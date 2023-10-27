@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class InkwellButton extends StatelessWidget {
+  const InkwellButton({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
