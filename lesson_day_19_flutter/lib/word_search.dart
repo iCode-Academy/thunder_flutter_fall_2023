@@ -78,7 +78,7 @@ class _WordSearchState extends State<_WordSearch> {
                     child: Center(
                       child: Text(
                         cell,
-                        style: TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: 20),
                       ),
                     ),
                   ),
