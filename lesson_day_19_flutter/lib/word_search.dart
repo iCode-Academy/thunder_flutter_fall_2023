@@ -39,11 +39,10 @@ class _WordSearchState extends State<_WordSearch> {
   final List<String> wordList = ['hello', 'world', 'foo', 'bar', 'baz', 'dart'];
   final WSSettings settings = WSSettings(
       width: 10,
-      height: 10,
+      height: 1,
       orientations: List.from([
         WSOrientation.horizontal,
         WSOrientation.vertical,
-        WSOrientation.diagonal,
       ]));
   final WordSearchSafety wordSearch = WordSearchSafety();
   WSNewPuzzle? newPuzzle;
@@ -110,7 +109,7 @@ class _WordSearchState extends State<_WordSearch> {
             children: [
               for (var element in solved!.notFound!)
                 Text(
-                  'word: ${element}',
+                  'word: $element',
                 ),
             ],
           ),
