@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:word_search_safety/word_search_safety.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class WordSearchApp extends StatelessWidget {
+  const WordSearchApp({super.key});
 
   @override
   Widget build(BuildContext context) {

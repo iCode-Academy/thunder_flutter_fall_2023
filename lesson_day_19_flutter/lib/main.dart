@@ -9,6 +9,6 @@ void main() {
     theme: ThemeData(
       primarySwatch: Colors.blue,
     ),
-    home: const InputPage(),
+    home: MyApp(),
   ));
 }
