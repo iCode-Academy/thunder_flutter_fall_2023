@@ -38,11 +38,10 @@ class _WordSearch extends StatefulWidget {
 class _WordSearchState extends State<_WordSearch> {
   final List<String> wordList = ['hello', 'world', 'foo', 'bar', 'baz', 'dart'];
   final WSSettings settings = WSSettings(
-      width: 10,
-      height: 1,
+      width: 7,
+      height: 2,
       orientations: List.from([
         WSOrientation.horizontal,
-        WSOrientation.vertical,
       ]));
   final WordSearchSafety wordSearch = WordSearchSafety();
   WSNewPuzzle? newPuzzle;
