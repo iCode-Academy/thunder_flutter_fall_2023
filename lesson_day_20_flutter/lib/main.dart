@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lesson_day_19_flutter/input_page.dart';
-import 'package:lesson_day_19_flutter/word_search.dart';
-import 'package:word_search_safety/word_search_safety.dart';
+import 'package:lesson_day_20_flutter/word_search.dart';
 
 void main() {
   runApp(MaterialApp(
