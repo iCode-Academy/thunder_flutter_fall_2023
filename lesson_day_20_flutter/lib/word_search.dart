@@ -6,22 +6,19 @@ class WordSearchApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Word Search Safety',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Word Search Safety'),
-        ),
-        body: const Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                'Puzzle 2D List',
-              ),
-              _WordSearch(),
-            ],
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Word Search Safety'),
+      ),
+      body: const Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'Puzzle 2D List',
+            ),
+            _WordSearch(),
+          ],
         ),
       ),
     );
