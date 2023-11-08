@@ -93,10 +93,8 @@ class _WordSearchScreenState extends State<WordSearchScreen> {
                       alignment: Alignment.center,
                       child: Text(
                         cell,
-                        style: TextStyle(
-                          // color: selectedLetter == cell
-                          //     ? Colors.white
-                          //     : Colors.black,
+                        style: const TextStyle(
+                          color: Colors.black,
                         ),
                       ),
                     ),
