@@ -41,7 +41,8 @@ class _WordSearchScreenState extends State<WordSearchScreen> {
     revealedHiddenWord = List.filled(hiddenWord.length, false);
     newPuzzle = wordSearch.newPuzzle(hiddenWord, settings);
     if (newPuzzle!.errors!.isEmpty) {
-      solved = wordSearch.solvePuzzle(newPuzzle!.puzzle!, ['M', 'I', 'C', 'K', 'E', 'Y']);
+      solved = wordSearch.solvePuzzle(newPuzzle!.puzzle!,
+          ['M', 'I', 'C', 'K', 'E', 'Y']);
     }
   }
 
