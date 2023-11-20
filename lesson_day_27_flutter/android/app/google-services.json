@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1025072596175",
+    "project_id": "lesson-thunder-fall",
+    "storage_bucket": "lesson-thunder-fall.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1025072596175:android:5657f3cfb7e0b14f0a63ba",
+        "android_client_info": {
+          "package_name": "com.example.lesson_day_27_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdbdlHUXoDNA3kqy6qeIQk4a86bLcL1iI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
