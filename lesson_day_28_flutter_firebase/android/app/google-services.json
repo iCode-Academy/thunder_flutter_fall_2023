@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1064141694819",
+    "project_id": "lesson-day-28-thunder",
+    "storage_bucket": "lesson-day-28-thunder.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1064141694819:android:7f53445c0f4198cc2d9556",
+        "android_client_info": {
+          "package_name": "com.example.lesson_day_28_flutter_firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEIYvmUmyub8apwZfis2dbknPdCvn2hFg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
