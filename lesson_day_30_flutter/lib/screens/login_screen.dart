@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lesson_day_30_flutter/screens/home_screen.dart';
 import 'package:lesson_day_30_flutter/utils/auth_methods.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -17,40 +18,39 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
         body: SafeArea(
             child: Container(
-                padding: EdgeInsets.symmetric(
-                    horizontal: 32
-                ),
+                padding: EdgeInsets.symmetric(horizontal: 32),
                 width: double.infinity,
                 child: Column(
                   children: [
                     SizedBox(height: 32),
                     Text(
                       'Login',
-                      style: TextStyle(
-                          fontSize: 32,
-                          fontWeight: FontWeight.bold
-                      ),
+                      style:
+                          TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 32),
                     TextField(
                       controller: _emailController,
-                      decoration: InputDecoration(
-                          hintText: 'Email'
-                      ),
+                      decoration: InputDecoration(hintText: 'Email'),
                     ),
                     SizedBox(height: 16),
                     TextField(
                       controller: _passwordController,
-                      decoration: InputDecoration(
-                          hintText: 'Password'
-                      ),
+                      decoration: InputDecoration(hintText: 'Password'),
                       obscureText: true,
                     ),
                     SizedBox(height: 16),
                     ElevatedButton(
-                      onPressed: () {
-                        AuthMethods().loginUser(email: _emailController.text,
+                      onPressed: () async {
+                        String result = await AuthMethods().loginUser(
+                            email: _emailController.text,
                             password: _passwordController.text);
+                        if (result == 'success') {
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomeScreen()));
+                        }
                       },
                       child: Text('Login'),
                     ),
@@ -60,9 +60,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Text('Register'),
                     ),
                   ],
-                )
-            )
-        )
-    );
+                ))));
   }
 }
