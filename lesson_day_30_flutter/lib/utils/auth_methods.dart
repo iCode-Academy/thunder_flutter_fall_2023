@@ -14,6 +14,8 @@ class AuthMethods {
           password: password,
         );
         result = "success";
+      } else {
+        result = "Please enter email and password";
       }
     } catch (e) {
       result = e.toString();

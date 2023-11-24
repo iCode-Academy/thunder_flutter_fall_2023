@@ -12,6 +12,35 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  bool _isLoading = false;
+
+
+  void loginAction() async {
+    setState(() {
+      _isLoading = true;
+    });
+    String result = await AuthMethods().loginUser(
+      email: _emailController.text,
+      password: _passwordController.text,
+    );
+    setState(() {
+      _isLoading = false;
+    });
+    if (result == "success") {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => HomeScreen(),
+        ),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(result),
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,18 +70,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     SizedBox(height: 16),
                     ElevatedButton(
-                      onPressed: () async {
-                        String result = await AuthMethods().loginUser(
-                            email: _emailController.text,
-                            password: _passwordController.text);
-                        if (result == 'success') {
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => HomeScreen()));
-                        }
-                      },
-                      child: Text('Login'),
+                      onPressed: loginAction,
+                      child: _isLoading
+                          ? CircularProgressIndicator()
+                          : Text('Login'),
                     ),
                     SizedBox(height: 16),
                     TextButton(
