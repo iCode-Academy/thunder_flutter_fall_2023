@@ -1,6 +1,9 @@
+import 'dart:typed_data';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:lesson_day_31_flutter/models/user.dart' as model;
+import 'package:lesson_day_31_flutter/utils/storage_methods.dart';
 
 class AuthMethods {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -18,32 +21,52 @@ class AuthMethods {
 
   // sign up user
   Future<String> signUpUser({
-    required String phonenumber,
+    required String email,
     required String password,
     required String username,
+    required String bio,
+    required Uint8List file,
   }) async {
-    String result = 'Some error occured';
+    String res = "Some error Occurred";
     try {
-      if (phonenumber.isNotEmpty ||
+      if (email.isNotEmpty ||
           password.isNotEmpty ||
-          username.isNotEmpty) {
-        UserCredential credential = await _auth.createUserWithEmailAndPassword(
-            email: phonenumber, password: password);
+          username.isNotEmpty ||
+          bio.isNotEmpty ||
+          file != null) {
+        // registering user in auth with email and password
+        UserCredential cred = await _auth.createUserWithEmailAndPassword(
+          email: email,
+          password: password,
+        );
 
-        _fireStore.collection('users').doc(credential.user!.uid).set({
-          'username': username,
-          'uid': credential.user!.uid,
-          'email': phonenumber,
-          'following': [],
-          'followers': []
-        });
+        String photoUrl = await StorageMethods()
+            .uploadImageToStorage('profilePics', file, false);
 
-        result = 'success';
+        model.User user = model.User(
+          username: username,
+          uid: cred.user!.uid,
+          photoUrl: photoUrl,
+          email: email,
+          bio: bio,
+          followers: [],
+          following: [],
+        );
+
+        // adding user in our database
+        await _fireStore
+            .collection("users")
+            .doc(cred.user!.uid)
+            .set(user.toJson());
+
+        res = "success";
+      } else {
+        res = "Please enter all the fields";
       }
     } catch (err) {
-      result = err.toString();
+      return err.toString();
     }
-    return result;
+    return res;
   }
 
   Future<String> loginUser({
