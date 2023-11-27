@@ -14,7 +14,6 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _passwordController = TextEditingController();
   bool _isLoading = false;
 
-
   void loginAction() async {
     setState(() {
       _isLoading = true;
@@ -72,7 +71,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     ElevatedButton(
                       onPressed: loginAction,
                       child: _isLoading
-                          ? CircularProgressIndicator()
+                          ? Center(
+                              child: CircularProgressIndicator(
+                                color: Colors.blue,
+                              ),
+                            )
                           : Text('Login'),
                     ),
                     SizedBox(height: 16),
