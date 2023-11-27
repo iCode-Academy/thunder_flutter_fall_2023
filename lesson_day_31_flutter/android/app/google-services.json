@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "953900295250",
+    "project_id": "lesson-day-29-flutter",
+    "storage_bucket": "lesson-day-29-flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:953900295250:android:907a04d0786bdc16086b8b",
+        "android_client_info": {
+          "package_name": "com.example.lesson_day_29_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuHQhTNEv_ZJe6wmePyerEjL_ynoPP_SE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:953900295250:android:5b95ab386d1ae22c086b8b",
+        "android_client_info": {
+          "package_name": "com.example.lesson_day_30_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuHQhTNEv_ZJe6wmePyerEjL_ynoPP_SE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:953900295250:android:19fc7b78c4a571bf086b8b",
+        "android_client_info": {
+          "package_name": "com.example.lesson_day_31_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuHQhTNEv_ZJe6wmePyerEjL_ynoPP_SE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
