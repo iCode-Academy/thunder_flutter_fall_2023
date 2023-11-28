@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lesson_day_35_flutter/sign_up.dart';
+import 'package:lesson_day_32_flutter/sign_up.dart';
 
 import 'auth_methods.dart';
 import 'home_screen.dart';

@@ -1,8 +1,7 @@
-import 'dart:typed_data';
-
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:lesson_day_35_flutter/text_input_field.dart';
-
+import 'package:flutter/services.dart';
+import 'text_input_field.dart';
 import 'auth_methods.dart';
 
 class SignUp extends StatefulWidget {
@@ -86,8 +85,21 @@ class _SignUpState extends State<SignUp> {
                 ),
                 InkWell(
                   onTap: () async {
+                    // Load the image from the assets
+                    ByteData data =
+                        await rootBundle.load('assets/images/user.png');
+                    Uint8List imageData = data.buffer.asUint8List();
+
+                    // Create a reference to Firebase Storage
+                    Reference ref = FirebaseStorage.instance
+                        .ref()
+                        .child('assets/images/user.png');
+
+                    // Upload the image to Firebase Storage
+                    await ref.putData(imageData);
+
                     String result = await AuthMethods().signUpUser(
-                        file: Uint8List.fromList([]),
+                        file: imageData,
                         bio: 'User Profile',
                         email: _emailController.text,
                         password: _passwordController.text,

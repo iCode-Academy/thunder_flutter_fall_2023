@@ -2,6 +2,7 @@ import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/services.dart';
 import 'package:lesson_day_32_flutter/storage_methods.dart';
 import 'models/user.dart' as model;
 
@@ -20,11 +21,17 @@ class AuthMethods {
     String result = 'Some error occured';
     try {
       if (email.isNotEmpty || password.isNotEmpty || username.isNotEmpty) {
+        String img = 'assets/images/user.png';
+        String path = img.substring(img.indexOf("/") + 1, img.lastIndexOf("/"));
+
         UserCredential credential = await _auth.createUserWithEmailAndPassword(
             email: email, password: password);
 
-        String photoUrl = await StorageMethods()
-            .uploadImageToStorage('profile_images', file, false);
+        ByteData data = await rootBundle.load(img);
+
+        Uint8List imageData = data.buffer.asUint8List();
+        String photoUrl =
+            await StorageMethods().uploadImageToStorage(path, imageData, false);
 
         model.User user = model.User(
             name: username,
