@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lesson_day_32_flutter/add_post_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'auth_methods.dart';
@@ -64,7 +65,16 @@ class _HomeScreenState extends State<HomeScreen> {
                   onPressed: () {
                     AuthMethods().signOutUser();
                   },
-                  child: Text('Sign Out'))
+                  child: Text('Sign Out')),
+              SizedBox(
+                height: 32,
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => AddPostScreen()));
+                  },
+                  child: Text('Go to Post Page'))
             ],
           ),
         ),

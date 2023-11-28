@@ -25,9 +25,9 @@ class User {
     return User(
       uid: snapshot['uid'],
       email: snapshot['email'],
-      name: snapshot['username'],
-      photoUrl: 'photoUrl',
-      bio: 'my name is khangai',
+      name: snapshot['name'],
+      photoUrl: snapshot['photoUrl'],
+      bio: snapshot['bio'],
       following: snapshot['following'],
       followers: snapshot['followers'],
     );
