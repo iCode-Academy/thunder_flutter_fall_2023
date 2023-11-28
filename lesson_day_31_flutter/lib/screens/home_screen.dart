@@ -53,6 +53,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         fontWeight: FontWeight.bold
                     ),
                   ),
+                  SizedBox(height: 32),
+                  ElevatedButton(
+                    onPressed: () {
+                      AuthMethods().signOut();
+                    },
+                    child: Text('Sign Out'),
+                  ),
                 ],
               )
           )
