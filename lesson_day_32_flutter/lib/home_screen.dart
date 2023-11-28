@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'auth_methods.dart';
-import 'models/user.dart';
+import 'models/user.dart' as model;
+import 'providers/user_provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -11,16 +13,21 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  String userName = '';
+  @override
+  void initState() {
+    super.initState();
+    addData();
+  }
+
+  addData() async {
+    UserProvider userProvider =
+        Provider.of<UserProvider>(context, listen: false);
+    await userProvider.refreshUser();
+  }
 
   @override
   Widget build(BuildContext context) {
-    void getUserName() async {
-      User user = await AuthMethods().getUserDetails();
-      setState(() {
-        userName = user.name;
-      });
-    }
+    model.User? user = Provider.of<UserProvider>(context).getUser;
 
     return Scaffold(
       body: SafeArea(
@@ -47,15 +54,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 32,
               ),
               Text(
-                userName,
+                user.email,
                 style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
               ),
               SizedBox(
                 height: 32,
               ),
-              ElevatedButton(onPressed: () {
-                getUserName();
-              }, child: Text('Get User Details')),
               ElevatedButton(
                   onPressed: () {
                     AuthMethods().signOutUser();
