@@ -32,6 +32,7 @@ class FirestoreMethods {
     } catch (e) {
       result = e.toString();
     }
+    print(result);
     return result;
   }
 }
