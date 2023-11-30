@@ -37,36 +37,37 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 32,
               ),
-              Text(
+              const Text(
                 'Home Screen',
                 style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 32,
               ),
-              Text(
+              const Text(
                 'Username',
                 style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 32,
               ),
               Text(
                 user.email,
-                style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+                style:
+                    const TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 32,
               ),
               ElevatedButton(
                   onPressed: () {
                     AuthMethods().signOutUser();
                   },
-                  child: Text('Sign Out')),
-              SizedBox(
+                  child: const Text('Sign Out')),
+              const SizedBox(
                 height: 32,
               ),
               ElevatedButton(
@@ -74,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => AddPostScreen()));
                   },
-                  child: Text('Go to Post Page'))
+                  child: const Text('Go to Post Page'))
             ],
           ),
         ),

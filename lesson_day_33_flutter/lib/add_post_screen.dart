@@ -65,21 +65,24 @@ class _AddPostScreenState extends State<AddPostScreen> {
     super.dispose();
   }
 
+  void clearImage() {
+    setState(() {
+      _image = null;
+    });
+  }
+
   void postImage(String uid, String username, String profImage) async {
     try {
       String result = await FirestoreMethods().uploadPost(
           _descriptionController.text, _image!, uid, username, profImage);
-
-      if (result == 'sucsess') {
-        SnackBar snackBar = SnackBar(content: Text('Post uploaded'));
-        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      if (result == 'success') {
+        showSnackBar(context, 'Post uploaded successfully');
+        clearImage();
       } else {
-        SnackBar snackBar = SnackBar(content: Text(result));
-        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+        showSnackBar(context, result);
       }
     } catch (e) {
-      SnackBar snackBar = SnackBar(content: Text(e.toString()));
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      showSnackBar(context, e.toString());
     }
   }
 
