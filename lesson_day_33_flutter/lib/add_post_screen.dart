@@ -103,7 +103,9 @@ class _AddPostScreenState extends State<AddPostScreen> {
             appBar: AppBar(
               backgroundColor: Colors.white,
               leading: IconButton(
-                  icon: const Icon(Icons.arrow_back), onPressed: () => {}),
+                  icon: const Icon(Icons.arrow_back), onPressed: () => {
+                    clearImage()
+              }),
               title: const Text(
                 'Add Post',
                 style: TextStyle(color: Colors.black),
