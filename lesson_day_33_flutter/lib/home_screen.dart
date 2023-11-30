@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lesson_day_32_flutter/add_post_screen.dart';
+import 'package:lesson_day_33_flutter/add_post_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'auth_methods.dart';
