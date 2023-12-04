@@ -6,6 +6,7 @@ import 'package:lesson_day_34_flutter/home_screen.dart';
 import 'package:lesson_day_34_flutter/providers/user_provider.dart';
 import 'package:provider/provider.dart';
 
+import 'layout/navigation-bar.dart';
 import 'login_screen.dart';
 
 void main() async {
@@ -20,7 +21,7 @@ void main() async {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.active) {
           if (snapshot.hasData) {
-            return const HomeScreen();
+            return SafeArea(child: const NavigationBarApp());
           } else if (snapshot.hasError) {
             return Scaffold(
               body: Center(
