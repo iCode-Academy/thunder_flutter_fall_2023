@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lesson_day_34_flutter/widgets/post_card.dart';
 
 class PostFeedScreen extends StatelessWidget {
   const PostFeedScreen({super.key});
@@ -15,13 +16,13 @@ class PostFeedScreen extends StatelessWidget {
           ),
         ],
         backgroundColor: Colors.white,
-        centerTitle: true,
+        centerTitle: false,
         title: SvgPicture.asset(
           'assets/images/bank.svg',
           height: 40,
         ),
       ),
-      body: ,
+      body: PostCard(),
     );
   }
 }

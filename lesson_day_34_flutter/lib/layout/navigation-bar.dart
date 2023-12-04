@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lesson_day_34_flutter/models/post.dart';
+import 'package:lesson_day_34_flutter/post_feed_screen.dart';
 
 import '../auth_methods.dart';
 
@@ -60,26 +62,8 @@ class _NavigationExampleState extends State<NavigationExample> {
         Card(
           shadowColor: Colors.transparent,
           margin: const EdgeInsets.all(8.0),
-          child: SizedBox.expand(
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Home page',
-                    style: theme.textTheme.titleLarge,
-                  ),
-                  ElevatedButton(
-                      onPressed: () {
-                        AuthMethods().signOutUser();
-                      },
-                      child: Text('Sign Out')),
-                ],
-              ),
-            ),
-          ),
+          child: PostFeedScreen(),
         ),
-
         /// Notifications page
         const Padding(
           padding: EdgeInsets.all(8.0),

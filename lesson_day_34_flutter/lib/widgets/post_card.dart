@@ -1,77 +1,83 @@
 import 'package:flutter/material.dart';
 
-class PostCard extends StatelessWidget {
+class PostCard extends StatefulWidget {
   const PostCard({super.key});
 
   @override
+  State<PostCard> createState() => _PostCardState();
+}
+
+class _PostCardState extends State<PostCard> {
+  @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
-      padding: const EdgeInsets.symmetric(
-        vertical: 10
-      ),
-      child: Column(
-        children: [
-          Row(
-            children: [
-              const SizedBox(width: 10),
-              CircleAvatar(
-                radius: 20,
+        color: Colors.white,
+        padding: const EdgeInsets.symmetric(vertical: 10),
+        child: Column(children: [
+          Container(
+            padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16)
+                .copyWith(right: 0),
+            child: Row(children: [
+              const CircleAvatar(
+                radius: 16,
                 backgroundImage: NetworkImage(
-                  'https://i.pravatar.cc/150?img=3',
+                    'https://avatars.githubusercontent.com/u/13901376?v=4'),
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'John Doe',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              const SizedBox(width: 10),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    'John Doe',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const Text(
-                    '2 hours ago',
-                    style: TextStyle(
-                      color: Colors.grey,
-                    ),
-                  ),
-                ],
-              ),
-            ],
+              IconButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) => Dialog(
+                        child: ListView(
+                            padding: const EdgeInsets.symmetric(vertical: 16.0),
+                            shrinkWrap: true,
+                            children: ['Delete']
+                                .map((e) => InkWell(
+                                      onTap: () {
+                                        Navigator.pop(context);
+                                      },
+                                      child: Container(
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 12.0, horizontal: 16.0),
+                                        child: Text(e),
+                                      ),
+                                    ))
+                                .toList()),
+                      ),
+                    );
+                  },
+                  icon: const Icon(Icons.more_vert)),
+            ]),
           ),
-          const SizedBox(height: 10),
-          const Text(
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
-            'Sed euismod, diam id aliquam ultrices, nisl nisi '
-            'consequat ipsum, nec aliquam diam tortor eu nunc. '
-            'Sed euismod, diam id aliquam ultrices, nisl nisi '
-            'consequat ipsum, nec aliquam diam tortor eu nunc. '
-            'Sed euismod, diam id aliquam ultrices, nisl nisi '
-            'consequat ipsum, nec aliquam diam tortor eu nunc. '
-            'Sed euismod, diam id aliquam ultrices, nisl nisi '
-            'consequat ipsum, nec aliquam diam tortor eu nunc. '
-            'Sed euismod, diam id aliquam ultrices, nisl nisi '
-            'consequat ipsum, nec aliquam diam tortor eu nunc. '
-            'Sed euismod, diam id aliquam ultrices, nisl nisi '
-            'consequat ipsum, nec aliquam diam tortor eu nunc. '
-            'Sed euismod, diam id aliquam ultrices, nisl nisi '
-            'consequat ipsum, nec aliquam diam tortor eu nunc. '
-            'Sed euismod, diam id aliquam ultrices, nisl nisi '
-            'consequat ipsum, nec aliquam diam tortor eu nunc.',
-            style: TextStyle(
-              fontSize: 16,
+          // IMAGE SECTION
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.35,
+            width: double.infinity,
+            child: Image.network(
+              'https://plus.unsplash.com/premium_photo-1676200985941-1a8d456c5b25?q=80&w=2500&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+              fit: BoxFit.cover,
             ),
-          ),
-          const SizedBox(height: 10),
-          Row(
-            children: [
-              const SizedBox(width: 10),
-              Expanded(
-                child: Row(
-      ),
-
-    );
+          )
+        ]));
   }
 }
