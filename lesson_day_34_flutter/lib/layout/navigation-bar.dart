@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lesson_day_34_flutter/models/post.dart';
 import 'package:lesson_day_34_flutter/post_feed_screen.dart';
 
-import '../auth_methods.dart';
 
 class NavigationBarApp extends StatelessWidget {
   const NavigationBarApp({super.key});
