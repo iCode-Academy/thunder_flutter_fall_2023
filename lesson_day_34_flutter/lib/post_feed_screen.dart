@@ -11,6 +11,7 @@ class PostFeedScreen extends StatefulWidget {
 }
 
 class _PostFeedScreenState extends State<PostFeedScreen> {
+
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -43,8 +44,8 @@ class _PostFeedScreenState extends State<PostFeedScreen> {
             itemCount: snapshot.data!.docs.length,
             itemBuilder: (ctx, index) => Container(
               margin: EdgeInsets.symmetric(
-                horizontal: width * 0.3,
-                vertical: 15,
+                horizontal:  width * 0.1,
+                vertical:  10,
               ),
               child: PostCard(
                 snap: snapshot.data!.docs[index].data(),
