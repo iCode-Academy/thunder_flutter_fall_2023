@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:lesson_day_34_flutter/add_post_screen.dart';
 import 'package:provider/provider.dart';
 
-import 'auth_methods.dart';
-import 'models/user.dart' as model;
-import 'providers/user_provider.dart';
+import '../models/user.dart' as model;
+import '../providers/user_provider.dart';
+import '../resources/auth_methods.dart';
+import 'add_post_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -37,14 +37,14 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 32,
               ),
-              Text(
+              const Text(
                 'Home Screen',
                 style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 32,
               ),
               Text(

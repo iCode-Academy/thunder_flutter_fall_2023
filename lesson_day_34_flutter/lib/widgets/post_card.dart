@@ -25,7 +25,7 @@ class _PostCardState extends State<PostCard> {
                 backgroundImage: NetworkImage(
                     'https://avatars.githubusercontent.com/u/13901376?v=4'),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 8,
               ),
               Expanded(

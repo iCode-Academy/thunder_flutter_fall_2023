@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lesson_day_34_flutter/post_feed_screen.dart';
 
+import '../screens/post_feed_screen.dart';
 
 class NavigationBarApp extends StatelessWidget {
   const NavigationBarApp({super.key});
@@ -62,6 +62,7 @@ class _NavigationExampleState extends State<NavigationExample> {
           margin: const EdgeInsets.all(8.0),
           child: PostFeedScreen(),
         ),
+
         /// Notifications page
         const Padding(
           padding: EdgeInsets.all(8.0),

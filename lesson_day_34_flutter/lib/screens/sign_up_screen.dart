@@ -1,8 +1,8 @@
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'text_input_field.dart';
-import 'auth_methods.dart';
+import '../resources/auth_methods.dart';
+import '../widgets/text_input_field.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({super.key});

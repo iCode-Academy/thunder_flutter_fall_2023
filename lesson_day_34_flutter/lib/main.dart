@@ -1,13 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:lesson_day_34_flutter/firebase_options.dart';
-import 'package:lesson_day_34_flutter/home_screen.dart';
-import 'package:lesson_day_34_flutter/providers/user_provider.dart';
 import 'package:provider/provider.dart';
 
 import 'layout/navigation-bar.dart';
-import 'login_screen.dart';
+import 'providers/user_provider.dart';
+import 'resources/firebase_options.dart';
+import 'screens/login_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +20,7 @@ void main() async {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.active) {
           if (snapshot.hasData) {
-            return SafeArea(child: const NavigationBarApp());
+            return const SafeArea(child: NavigationBarApp());
           } else if (snapshot.hasError) {
             return Scaffold(
               body: Center(

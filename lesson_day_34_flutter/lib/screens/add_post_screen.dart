@@ -2,11 +2,11 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:lesson_day_34_flutter/firestore_methods.dart';
-import 'package:lesson_day_34_flutter/providers/user_provider.dart';
-import 'package:lesson_day_34_flutter/utils.dart';
 import 'package:provider/provider.dart';
-import 'models/user.dart';
+import '../models/user.dart';
+import '../providers/user_provider.dart';
+import '../resources/firestore_methods.dart';
+import '../utils/utils.dart';
 
 class AddPostScreen extends StatefulWidget {
   const AddPostScreen({super.key});
@@ -103,9 +103,8 @@ class _AddPostScreenState extends State<AddPostScreen> {
             appBar: AppBar(
               backgroundColor: Colors.white,
               leading: IconButton(
-                  icon: const Icon(Icons.arrow_back), onPressed: () => {
-                    clearImage()
-              }),
+                  icon: const Icon(Icons.arrow_back),
+                  onPressed: () => {clearImage()}),
               title: const Text(
                 'Add Post',
                 style: TextStyle(color: Colors.black),

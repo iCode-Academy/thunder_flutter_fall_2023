@@ -1,9 +1,10 @@
 import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:lesson_day_34_flutter/models/post.dart';
-import 'package:lesson_day_34_flutter/storage_methods.dart';
 import 'package:uuid/uuid.dart';
+
+import '../models/post.dart';
+import 'storage_methods.dart';
 
 class FirestoreMethods {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -19,7 +20,7 @@ class FirestoreMethods {
       Post post = Post(
           uid: uid,
           description: description,
-          postId: Uuid().v1(),
+          postId: const Uuid().v1(),
           username: username,
           datePublished: DateTime.now(),
           postUrl: photoUrl,
