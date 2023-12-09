@@ -1,4 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+
+import '../resources/firestore_methods.dart';
+import '../utils/utils.dart';
 
 class PostCard extends StatefulWidget {
   final snap;
@@ -10,6 +14,43 @@ class PostCard extends StatefulWidget {
 }
 
 class _PostCardState extends State<PostCard> {
+  int commentLen = 0;
+  bool isLikeAnimating = false;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchCommentLen();
+  }
+
+  fetchCommentLen() async {
+    try {
+      QuerySnapshot snap = await FirebaseFirestore.instance
+          .collection('posts')
+          .doc(widget.snap['postId'])
+          .collection('comments')
+          .get();
+      commentLen = snap.docs.length;
+    } catch (err) {
+      showSnackBar(
+        context,
+        err.toString(),
+      );
+    }
+    setState(() {});
+  }
+
+  deletePost(String postId) async {
+    try {
+      await FirestoreMethods().deletePost(postId);
+    } catch (err) {
+      showSnackBar(
+        context,
+        err.toString(),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,10 +61,10 @@ class _PostCardState extends State<PostCard> {
             padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16)
                 .copyWith(right: 0),
             child: Row(children: [
-              const CircleAvatar(
+              CircleAvatar(
                 radius: 16,
-                backgroundImage: NetworkImage(
-                    'https://avatars.githubusercontent.com/u/13901376?v=4'),
+                backgroundImage:
+                    NetworkImage(widget.snap['profImage'].toString()),
               ),
               const SizedBox(
                 height: 8,
@@ -56,6 +97,9 @@ class _PostCardState extends State<PostCard> {
                             children: ['Delete']
                                 .map((e) => InkWell(
                                       onTap: () {
+                                        deletePost(
+                                          widget.snap['postId'].toString(),
+                                        );
                                         Navigator.pop(context);
                                       },
                                       child: Container(
@@ -76,7 +120,7 @@ class _PostCardState extends State<PostCard> {
             height: MediaQuery.of(context).size.height * 0.35,
             width: double.infinity,
             child: Image.network(
-              'https://plus.unsplash.com/premium_photo-1676200985941-1a8d456c5b25?q=80&w=2500&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+              widget.snap['postUrl'].toString(),
               fit: BoxFit.cover,
             ),
           )
