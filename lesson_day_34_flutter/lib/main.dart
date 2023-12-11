@@ -20,7 +20,7 @@ void main() async {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.active) {
           if (snapshot.hasData) {
-            return const SafeArea(child: NavigationBarApp());
+            return const SafeArea(child: LoginScreen());
           } else if (snapshot.hasError) {
             return Scaffold(
               body: Center(
