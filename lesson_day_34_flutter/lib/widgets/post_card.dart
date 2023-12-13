@@ -9,7 +9,6 @@ import '../screens/comments_screen.dart';
 import '../utils/utils.dart';
 import 'like_animation.dart';
 
-
 class PostCard extends StatefulWidget {
   final snap;
 
@@ -177,16 +176,16 @@ class _PostCardState extends State<PostCard> {
                 child: IconButton(
                   icon: true
                       ? const Icon(
-                    Icons.favorite,
-                    color: Colors.red,
-                  )
+                          Icons.favorite,
+                          color: Colors.red,
+                        )
                       : const Icon(
-                    Icons.favorite_border,
-                  ),
+                          Icons.favorite_border,
+                        ),
                   onPressed: () => FirestoreMethods().likePost(
                     widget.snap['postId'].toString(),
                     user.uid,
-                    widget.snap['likes'],
+                    ((widget.snap['likes'] ?? []) as List),
                   ),
                 ),
               ),
@@ -209,10 +208,10 @@ class _PostCardState extends State<PostCard> {
                   onPressed: () {}),
               Expanded(
                   child: Align(
-                    alignment: Alignment.bottomRight,
-                    child: IconButton(
-                        icon: const Icon(Icons.bookmark_border), onPressed: () {}),
-                  ))
+                alignment: Alignment.bottomRight,
+                child: IconButton(
+                    icon: const Icon(Icons.bookmark_border), onPressed: () {}),
+              ))
             ],
           ),
           //DESCRIPTION AND NUMBER OF COMMENTS
