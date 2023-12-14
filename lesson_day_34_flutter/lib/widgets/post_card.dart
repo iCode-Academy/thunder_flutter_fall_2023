@@ -171,10 +171,10 @@ class _PostCardState extends State<PostCard> {
           Row(
             children: <Widget>[
               LikeAnimation(
-                isAnimating: false,
+                isAnimating: ((widget.snap['likes'] ?? []) as List).contains(user.uid) ,
                 smallLike: true,
                 child: IconButton(
-                  icon: true
+                  icon: ((widget.snap['likes'] ?? []) as List).contains(user.uid)
                       ? const Icon(
                           Icons.favorite,
                           color: Colors.red,
@@ -227,7 +227,7 @@ class _PostCardState extends State<PostCard> {
                         .titleSmall!
                         .copyWith(fontWeight: FontWeight.w800),
                     child: Text(
-                      ' likes',
+                      '${((widget.snap['likes'] ?? []) as List).length} likes',
                       style: Theme.of(context).textTheme.bodyMedium,
                     )),
                 Container(
