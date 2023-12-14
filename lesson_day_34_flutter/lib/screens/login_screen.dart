@@ -65,6 +65,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   String result = await AuthMethods().signInUser(
                       email: _emailController.text,
                       password: _passwordController.text);
+                  print(result);
                   if (result == 'success') {
                     Navigator.of(context).pushReplacement(MaterialPageRoute(
                       builder: (context) => NavigationBarApp(),
