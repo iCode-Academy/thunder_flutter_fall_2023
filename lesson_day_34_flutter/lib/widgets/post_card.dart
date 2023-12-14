@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:lesson_day_34_flutter/models/user.dart';
+import 'package:lesson_day_34_flutter/screens/edit_post_screen.dart';
 import 'package:provider/provider.dart';
 import '../providers/user_provider.dart';
 import '../resources/firestore_methods.dart';
@@ -128,10 +129,10 @@ class _PostCardState extends State<PostCard> {
                                   ),
                                   InkWell(
                                     onTap: () {
-                                      updatePost(
-                                        widget.snap['postId'].toString(),
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(builder: (context) => EditPostScreen(postId:  widget.snap['postId'].toString())),
                                       );
-                                      Navigator.pop(context);
                                     },
                                     child: Container(
                                       padding: const EdgeInsets.symmetric(

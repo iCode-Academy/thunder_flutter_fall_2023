@@ -133,8 +133,10 @@ class FirestoreMethods {
   Future<String> editPost(String postId) async {
     String result = 'Something went wrong';
     try {
-      final post = await _firestore.collection('posts').doc(postId);
-      print(post);
+      final post = await _firestore.collection('posts').doc(postId).get();
+      final data = await post.data() as Map<String, dynamic>;
+
+      print('posts : ${data}');
 
       result = 'success';
     } catch (err) {
