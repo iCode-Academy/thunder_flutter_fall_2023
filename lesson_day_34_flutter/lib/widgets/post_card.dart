@@ -56,6 +56,17 @@ class _PostCardState extends State<PostCard> {
     }
   }
 
+  updatePost(String postId) async {
+    try {
+      await FirestoreMethods().editPost(postId);
+    } catch (err) {
+      showSnackBar(
+        context,
+        err.toString(),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final User user = Provider.of<UserProvider>(context).getUser;
@@ -95,28 +106,40 @@ class _PostCardState extends State<PostCard> {
               IconButton(
                   onPressed: () {
                     showDialog(
-                      context: context,
-                      builder: (context) => Dialog(
-                        child: ListView(
-                            padding: const EdgeInsets.symmetric(vertical: 16.0),
-                            shrinkWrap: true,
-                            children: ['Delete']
-                                .map((e) => InkWell(
-                                      onTap: () {
-                                        deletePost(
-                                          widget.snap['postId'].toString(),
-                                        );
-                                        Navigator.pop(context);
-                                      },
-                                      child: Container(
-                                        padding: const EdgeInsets.symmetric(
-                                            vertical: 12.0, horizontal: 16.0),
-                                        child: Text(e),
-                                      ),
-                                    ))
-                                .toList()),
-                      ),
-                    );
+                        context: context,
+                        builder: (context) => Dialog(
+                                child: ListView(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 16.0),
+                                    shrinkWrap: true,
+                                    children: [
+                                  InkWell(
+                                    onTap: () {
+                                      deletePost(
+                                        widget.snap['postId'].toString(),
+                                      );
+                                      Navigator.pop(context);
+                                    },
+                                    child: Container(
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 12.0, horizontal: 16.0),
+                                      child: Text('Delete'),
+                                    ),
+                                  ),
+                                  InkWell(
+                                    onTap: () {
+                                      updatePost(
+                                        widget.snap['postId'].toString(),
+                                      );
+                                      Navigator.pop(context);
+                                    },
+                                    child: Container(
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 12.0, horizontal: 16.0),
+                                      child: Text('Edit'),
+                                    ),
+                                  )
+                                ])));
                   },
                   icon: const Icon(Icons.more_vert)),
             ]),
@@ -171,17 +194,19 @@ class _PostCardState extends State<PostCard> {
           Row(
             children: <Widget>[
               LikeAnimation(
-                isAnimating: ((widget.snap['likes'] ?? []) as List).contains(user.uid) ,
+                isAnimating:
+                    ((widget.snap['likes'] ?? []) as List).contains(user.uid),
                 smallLike: true,
                 child: IconButton(
-                  icon: ((widget.snap['likes'] ?? []) as List).contains(user.uid)
-                      ? const Icon(
-                          Icons.favorite,
-                          color: Colors.red,
-                        )
-                      : const Icon(
-                          Icons.favorite_border,
-                        ),
+                  icon:
+                      ((widget.snap['likes'] ?? []) as List).contains(user.uid)
+                          ? const Icon(
+                              Icons.favorite,
+                              color: Colors.red,
+                            )
+                          : const Icon(
+                              Icons.favorite_border,
+                            ),
                   onPressed: () => FirestoreMethods().likePost(
                     widget.snap['postId'].toString(),
                     user.uid,

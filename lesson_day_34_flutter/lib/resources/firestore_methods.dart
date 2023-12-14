@@ -129,4 +129,17 @@ class FirestoreMethods {
       if (kDebugMode) print(e.toString());
     }
   }
+
+  Future<String> editPost(String postId) async {
+    String result = 'Something went wrong';
+    try {
+      final post = await _firestore.collection('posts').doc(postId);
+      print(post);
+
+      result = 'success';
+    } catch (err) {
+      result = err.toString();
+    }
+    return result;
+  }
 }
