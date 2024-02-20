@@ -1,4 +1,4 @@
-import 'package:lesson_day_24_flutter/models/word_search_model.dart';
+import 'word_search_model.dart';
 
 class GameState {
   WordSearchModel currentModel;

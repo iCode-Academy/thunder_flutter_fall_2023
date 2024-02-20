@@ -137,8 +137,8 @@ class _WordSearchScreenState extends State<WordSearchScreen> {
               ),
             ),
             Container(
-              width: 200,
-              height: 200,
+              width: 100,
+              height: 100,
               child: Image.asset(gameState.currentModel.imageURL),
             ),
             SizedBox(height: 150),

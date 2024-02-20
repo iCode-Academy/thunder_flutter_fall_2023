@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lesson_day_23_flutter/hidden_word_widget.dart';
+import 'hidden_word_widget.dart';
 import 'package:word_search_safety/word_search_safety.dart';
 
 class WordSearchGame extends StatelessWidget {

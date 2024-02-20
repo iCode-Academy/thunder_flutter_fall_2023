@@ -8,6 +8,6 @@ import 'package:lesson_day_22_flutter/word_search_v6.dart';
 import 'package:lesson_day_22_flutter/word_search_v7.dart';
 
 void main() {
-  runApp(WordSearchGameV7());
+  runApp(WordSearchGame());
 }
 
