@@ -1,7 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
-import 'package:lesson_day_31_flutter/utils/auth_methods.dart';
+import '../utils/auth_methods.dart';
 import '../widgets/text_field_input.dart';
 
 class SignUp extends StatefulWidget {

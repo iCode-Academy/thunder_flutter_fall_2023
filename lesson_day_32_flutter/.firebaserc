@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "lesson-day-29-flutter"
-  }
+    "default": "thunder-winter-2024-lessons",
+    "thunder-winter-2024-lessons": "thunder-winter-2024-lessons"
+  },
+  "targets": {},
+  "etags": {}
 }

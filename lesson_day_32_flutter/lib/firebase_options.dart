@@ -53,10 +53,10 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDuHQhTNEv_ZJe6wmePyerEjL_ynoPP_SE',
-    appId: '1:953900295250:android:ecd973db5f5855a9086b8b',
-    messagingSenderId: '953900295250',
-    projectId: 'lesson-day-29-flutter',
-    storageBucket: 'lesson-day-29-flutter.appspot.com',
+    apiKey: 'AIzaSyBnHuCGrylVHRroVs6r4M1cGQ2AkQVvMfI',
+    appId: '1:651769048741:android:ef9e2470762cb57e9aa74c',
+    messagingSenderId: '651769048741',
+    projectId: 'thunder-winter-2024-lessons',
+    storageBucket: 'thunder-winter-2024-lessons.appspot.com',
   );
 }
